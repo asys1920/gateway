@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: UserService
+          uri: http://127.0.0.1:8081/
+          predicates:
+            - Path=/users/**
+        - id: CarService
+          uri: http://127.0.0.1:8082/
+          predicates:
+            - Path=/cars/**
+        - id: AccountingService
+          uri: http://127.0.0.1:8083/
+          predicates:
+            - Path=/bills/**
+        - id: PaymentService
+          uri: http://127.0.0.1:8084/
+          predicates:
+            - Path=/pay/**
