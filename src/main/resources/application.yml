@@ -1,23 +1,39 @@
 server:
   port: 8080
 
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 spring:
   cloud:
     gateway:
       routes:
-        - id: UserService
+        - id: OrderService
           uri: http://127.0.0.1:8081/
           predicates:
-            - Path=/users/**
-        - id: CarService
+            - Path=/orders/**
+        - id: PaymentService
           uri: http://127.0.0.1:8082/
           predicates:
-            - Path=/cars/**
-        - id: AccountingService
+            - Path=/pay/**
+        - id: CarService
           uri: http://127.0.0.1:8083/
           predicates:
-            - Path=/bills/**
-        - id: PaymentService
+            - Path=/cars/**
+        - id: UserService
           uri: http://127.0.0.1:8084/
           predicates:
-            - Path=/pay/**
+            - Path=/users/**
+        - id: AccountingService
+          uri: http://127.0.0.1:8085/
+          predicates:
+            - Path=/bills/**
+            - Path=/balance/**
