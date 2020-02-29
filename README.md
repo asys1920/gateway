@@ -9,7 +9,7 @@
 - [Configuration](#configuration)
 
 ## Description
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/asys1920/accountingservice)](https://github.com/asys1920/accountingservice/releases/tag/v1.0.0)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/asys1920/gateway)](https://github.com/asys1920/gateway/releases/tag/v1.0.0)
 
 This microservice is part of the car-rental project which was built
 by the Asys course 19/20 at the TH Bingen.
