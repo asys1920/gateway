@@ -1,5 +1,6 @@
 server:
-  port: ${gateway.port:8080}
+  address: ${GATEWAY_ADDRESS:localhost}
+  port: ${GATEWAY_PORT:8080}
 
 management:
   endpoint:
@@ -17,23 +18,23 @@ spring:
     gateway:
       routes:
         - id: OrderService
-          uri: http://${order.ip:127.0.0.1}:${order.port:8081}/
+          uri: http://${ORDER_ADDRESS:127.0.0.1}:${ORDER_PORT:8081}/
           predicates:
             - Path=/orders/**
         - id: PaymentService
-          uri: http://${payment.ip:127.0.0.1}:${payment.port:8082}/
+          uri: http://${PAYMENT_ADDRESS:127.0.0.1}:${PAYMENT_PORT:8082}/
           predicates:
             - Path=/pay/**
         - id: CarService
-          uri: http://${car.ip:127.0.0.1}:${car.port:8083}/
+          uri: http://${CAR_ADDRESS:127.0.0.1}:${CAR_PORT:8083}/
           predicates:
             - Path=/cars/**
         - id: UserService
-          uri: http://${user.ip:127.0.0.1}:${user.port:8084}/
+          uri: http://${USER_ADDRESS:127.0.0.1}:${USER_PORT:8084}/
           predicates:
             - Path=/users/**
         - id: AccountingService
-          uri: http://${accounting.ip:127.0.0.1}:${accounting.port:8085}/
+          uri: http://${ACCOUNTING_ADDRESS:127.0.0.1}:${ACCOUNTING_PORT:8085}/
           predicates:
             - Path=/bills/**
             - Path=/balance/**
